@@ -9,38 +9,59 @@
 
     <TextView
         android:id="@+id/donnees_complementaires_titre"
+        android:textSize="18sp"
         android:layout_centerInParent="true"
         android:text="@string/additional_title"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintBottom_toTopOf="@id/donnees_complementaires_email_titre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="10dp"/>
 
+    <!-- Email Field -->
     <TextView
         android:id="@+id/donnees_complementaires_email_titre"
         android:layout_centerInParent="true"
         android:text="@string/additional_email_title"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintEnd_toStartOf="@id/donnees_complementaires_email_champ"
+        android:layout_width="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/donnees_complementaires_titre"/>
+        app:layout_constraintTop_toBottomOf="@id/donnees_complementaires_titre"
+        app:layout_constraintBottom_toBottomOf="@id/donnees_complementaires_email_champ"
+        android:layout_marginEnd="20dp"/>
 
     <EditText
         android:id = "@+id/donnees_complementaires_email_champ"
-        android:autofillHints="email"
-        android:inputType="textEmailAddress"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="@string/additional_email_title"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/donnees_complementaires_email_champ"
-        app:layout_constraintTop_toTopOf="@id/donnees_complementaires_email_champ"/>
+        app:layout_constraintStart_toEndOf="@id/donnees_complementaires_email_titre"
+        app:layout_constraintTop_toBottomOf="@id/donnees_complementaires_titre"
+        android:layout_marginStart="40dp"/>
+
+    <!-- Comment Field -->
+    <TextView
+        android:id="@+id/donnees_complementaires_commentaire_titre"
+        android:layout_centerInParent="true"
+        android:text="@string/additional_remarks_title"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/donnees_complementaires_email_champ" />
+
+    <EditText
+        android:id = "@+id/donnees_complementaires_commentaire_champ"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/donnees_complementaires_email_titre"
+        android:layout_marginTop="60dp"/>
 
 
 
