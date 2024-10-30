@@ -11,8 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.green_activity)
 
-        val studentLayout = findViewById<LinearLayout>(R.id.student_data_layout)
-        val workerLayout = findViewById<LinearLayout>(R.id.worker_data_layout)
+        val studentLayout = findViewById<LinearLayout>(R.id.specific_student_data_layout)
+        val workerLayout = findViewById<LinearLayout>(R.id.specific_worker_data_layout)
         val radioGroup = findViewById<RadioGroup>(R.id.base_radio_group_occupation)
 
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
