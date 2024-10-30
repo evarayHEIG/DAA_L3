@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:padding="10dp">
 
         <!-- Title -->
@@ -18,123 +18,130 @@
             android:text="@string/main_base_title"
             android:textAllCaps="true"
             android:textSize="18sp"
-            android:layout_marginBottom="10dp" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- Name Field -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/base_text_view_name"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
+            android:text="@string/main_base_name_title"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintTop_toBottomOf="@id/base_text_view_base_data"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/base_edit_text_name" />
 
-            <TextView
-                android:id="@+id/base_text_view_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/main_base_name_title" />
-
-            <EditText
-                android:id="@+id/base_edit_text_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:hint="@string/main_base_name_title"
-                android:inputType="textPersonName" />
-        </LinearLayout>
+        <EditText
+            android:id="@+id/base_edit_text_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/main_base_name_title"
+            android:inputType="textPersonName"
+            android:layout_marginStart="30dp"
+            app:layout_constraintTop_toBottomOf="@id/base_text_view_base_data"
+            app:layout_constraintStart_toEndOf="@id/base_text_view_name"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- Surname Field -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/base_text_view_surname"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
+            android:text="@string/main_base_firstname_title"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintTop_toBottomOf="@id/base_text_view_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/base_edit_text_surname" />
 
-            <TextView
-                android:id="@+id/base_text_view_surname"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/main_base_firstname_title" />
-
-            <EditText
-                android:id="@+id/base_edit_text_surname"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:autofillHints="true"
-                android:hint="@string/main_base_firstname_title"
-                android:inputType="textPersonName" />
-        </LinearLayout>
+        <EditText
+            android:id="@+id/base_edit_text_surname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/main_base_firstname_title"
+            android:inputType="textPersonName"
+            android:layout_marginStart="30dp"
+            app:layout_constraintTop_toBottomOf="@id/base_edit_text_name"
+            app:layout_constraintStart_toEndOf="@id/base_text_view_surname"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- Birthdate Field with Icon -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
-
-            <TextView
-                android:id="@+id/base_text_view_birthdate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/main_base_birthdate_title" />
-
-            <EditText
-                android:id="@+id/base_edit_text_birthdate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:autofillHints="true"
-                android:hint="@string/main_base_birthdate_title"
-                android:inputType="date"
-                android:clickable="false"
-                android:cursorVisible="false"
-                android:focusable="false" />
-
-            <ImageButton
-                android:id="@+id/base_image_button_cake"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/cake"
-                android:contentDescription="@string/main_base_birthdate_title" />
-        </LinearLayout>
-
-        <!-- Nationality Field -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
-
-            <TextView
-                android:id="@+id/base_text_view_nationality"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/main_base_nationality_title" />
-
-            <Spinner
-                android:id="@+id/base_spinner_nationality"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2" />
-        </LinearLayout>
-
-        <!-- Occupation Field -->
         <TextView
-            android:id="@+id/base_text_view_occupation"
+            android:id="@+id/base_text_view_birthdate"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/main_base_birthdate_title"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintTop_toBottomOf="@id/base_text_view_surname"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/base_edit_text_birthdate" />
+
+        <EditText
+            android:id="@+id/base_edit_text_birthdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/main_base_birthdate_title"
+            android:inputType="date"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:layout_marginStart="30dp"
+            app:layout_constraintTop_toBottomOf="@id/base_edit_text_surname"
+            app:layout_constraintStart_toEndOf="@id/base_text_view_birthdate"
+            app:layout_constraintEnd_toStartOf="@id/base_image_button_cake" />
+
+        <ImageButton
+            android:id="@+id/base_image_button_cake"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/cake"
+            android:contentDescription="@string/main_base_birthdate_title"
+            app:layout_constraintTop_toTopOf="@id/base_edit_text_birthdate"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Nationality Field -->
+        <TextView
+            android:id="@+id/base_text_view_nationality"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/main_base_nationality_title"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintTop_toBottomOf="@id/base_text_view_birthdate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/base_spinner_nationality"
+            />
+
+        <Spinner
+            android:id="@+id/base_spinner_nationality"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            app:layout_constraintTop_toBottomOf="@id/base_edit_text_birthdate"
+            app:layout_constraintStart_toEndOf="@id/base_text_view_nationality"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/base_text_view_nationality"
+            />
+
+        <!-- Occupation Field with RadioGroup -->
+        <TextView
+            android:id="@+id/base_text_view_occupation"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
             android:text="@string/main_base_occupation_title"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginEnd="30dp"
+            app:layout_constraintTop_toBottomOf="@id/base_text_view_nationality"
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
         <RadioGroup
             android:id="@+id/base_radio_group_occupation"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginStart="30dp"
+            app:layout_constraintTop_toBottomOf="@id/base_text_view_occupation"
+            app:layout_constraintStart_toEndOf="@id/base_text_view_occupation"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <RadioButton
                 android:id="@+id/base_radio_button_student"
@@ -149,150 +156,149 @@
                 android:text="@string/main_base_occupation_worker" />
         </RadioGroup>
 
-        <!-- Student Specific Data Section  -->
-        <LinearLayout
-            android:id="@+id/specific_student_data_layout"
-            android:layout_width="match_parent"
+        <!-- Student Specific Data Section -->
+        <TextView
+            android:id="@+id/specific_text_view_student_data"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone"
-            android:layout_marginTop="16dp">
+            android:text="@string/main_specific_students_title"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/base_radio_group_occupation"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:id="@+id/specific_text_view_student_data"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/main_specific_students_title"
-                android:textAllCaps="true"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp">
-
-                <TextView
-                    android:id="@+id/specific_text_view_student_school"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/main_specific_school_title" />
-
-                <EditText
-                    android:id="@+id/specific_edit_text_student_school"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:hint="@string/main_specific_school_title"
-                    android:inputType="text" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp">
-
-                <TextView
-                    android:id="@+id/specific_text_view_student_graduation_year"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/main_specific_graduationyear_title" />
-
-                <EditText
-                    android:id="@+id/specific_edit_text_student_graduation_year"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:hint="@string/main_specific_graduationyear_title"
-                    android:inputType="number" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Worker Specific Data Section  -->
-        <LinearLayout
-            android:id="@+id/specific_worker_data_layout"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/specific_text_view_student_school"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone"
-            android:layout_marginTop="16dp">
+            android:text="@string/main_specific_school_title"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintTop_toBottomOf="@id/specific_text_view_student_data"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/specific_edit_text_student_school" />
 
-            <TextView
-                android:id="@+id/specific_text_view_worker_data"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/main_specific_workers_title"
-                android:textAllCaps="true"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp" />
+        <EditText
+            android:id="@+id/specific_edit_text_student_school"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/main_specific_school_title"
+            android:inputType="text"
+            android:layout_marginStart="30dp"
+            app:layout_constraintTop_toBottomOf="@id/specific_text_view_student_data"
+            app:layout_constraintStart_toEndOf="@id/specific_text_view_student_school"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp">
+        <TextView
+            android:id="@+id/specific_text_view_student_graduation_year"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/main_specific_graduationyear_title"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintTop_toBottomOf="@id/specific_edit_text_student_school"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/specific_edit_text_student_graduation_year" />
 
-                <TextView
-                    android:id="@+id/specific_text_view_worker_company"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/main_specific_compagny_title" />
+        <EditText
+            android:id="@+id/specific_edit_text_student_graduation_year"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/main_specific_graduationyear_title"
+            android:inputType="number"
+            android:layout_marginStart="30dp"
+            app:layout_constraintTop_toBottomOf="@id/specific_edit_text_student_school"
+            app:layout_constraintStart_toEndOf="@id/specific_text_view_student_graduation_year"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-                <EditText
-                    android:id="@+id/specific_edit_text_worker_company"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:hint="@string/main_specific_compagny_title"
-                    android:inputType="text" />
-            </LinearLayout>
+        <!-- Worker Specific Data Section -->
+        <TextView
+            android:id="@+id/specific_text_view_worker_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_specific_workers_title"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/base_radio_group_occupation"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp">
+        <TextView
+            android:id="@+id/specific_text_view_worker_company"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/main_specific_compagny_title"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintTop_toBottomOf="@id/specific_text_view_worker_data"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/specific_edit_text_worker_company" />
 
-                <TextView
-                    android:id="@+id/specific_text_view_worker_sector"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/main_specific_sector_title" />
+        <EditText
+            android:id="@+id/specific_edit_text_worker_company"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/main_specific_compagny_title"
+            android:inputType="text"
+            android:layout_marginStart="30dp"
+            app:layout_constraintTop_toBottomOf="@id/specific_text_view_worker_data"
+            app:layout_constraintStart_toEndOf="@id/specific_text_view_worker_company"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-                <Spinner
-                    android:id="@+id/specific_spinner_worker_sector"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2" />
-            </LinearLayout>
+        <TextView
+            android:id="@+id/specific_text_view_worker_sector"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/main_specific_sector_title"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintTop_toBottomOf="@id/specific_text_view_worker_company"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/specific_spinner_worker_sector"
+            />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp">
+        <Spinner
+            android:id="@+id/specific_spinner_worker_sector"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            app:layout_constraintTop_toBottomOf="@id/specific_edit_text_worker_company"
+            app:layout_constraintStart_toEndOf="@id/specific_text_view_worker_sector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/specific_text_view_worker_sector"
+            />
 
-                <TextView
-                    android:id="@+id/specific_text_view_worker_experience"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/main_specific_experience_title" />
+        <TextView
+            android:id="@+id/specific_text_view_worker_experience"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/main_specific_experience_title"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintTop_toBottomOf="@id/specific_text_view_worker_sector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/specific_edit_text_worker_experience" />
 
-                <EditText
-                    android:id="@+id/specific_edit_text_worker_experience"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:hint="@string/main_specific_experience_title"
-                    android:inputType="numberDecimal" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
+        <EditText
+            android:id="@+id/specific_edit_text_worker_experience"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/main_specific_experience_title"
+            android:inputType="numberDecimal"
+            android:layout_marginStart="30dp"
+            app:layout_constraintTop_toBottomOf="@id/specific_spinner_worker_sector"
+            app:layout_constraintStart_toEndOf="@id/specific_text_view_worker_experience"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Student Specific Data Group -->
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="specific_text_view_student_data,specific_text_view_student_school,specific_edit_text_student_school,specific_text_view_student_graduation_year,specific_edit_text_student_graduation_year"
+            android:visibility="gone" />
+
+        <!-- Worker Specific Data Group -->
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_worker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="specific_text_view_worker_data,specific_text_view_worker_company,specific_edit_text_worker_company,specific_text_view_worker_sector,specific_spinner_worker_sector,specific_text_view_worker_experience,specific_edit_text_worker_experience"
+            android:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
