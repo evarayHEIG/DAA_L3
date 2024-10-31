@@ -355,11 +355,12 @@
             android:id = "@+id/donnees_complementaires_commentaire_champ"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/donnees_complementaires_email_titre"
-            android:layout_marginTop="60dp"/>
+            android:layout_marginTop="60dp"
+            />
 
         <!--Delete button -->
         <Button
