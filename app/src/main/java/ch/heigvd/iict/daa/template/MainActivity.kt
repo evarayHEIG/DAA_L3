@@ -7,7 +7,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.RadioGroup
+import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import ch.heigvd.iict.daa.labo3.Student
 import ch.heigvd.iict.daa.labo3.Worker
 import ch.heigvd.iict.daa.template.databinding.ActivityMainBinding
@@ -38,19 +41,36 @@ class MainActivity : AppCompatActivity() {
                 R.id.base_radio_button_student -> {
                     binding.specificStudentDataLayout.visibility = View.VISIBLE
                     binding.specificWorkerDataLayout.visibility = View.GONE
+                    val constraintLayout = (binding.root).getChildAt(0) as ConstraintLayout
+                    val constraintSet = ConstraintSet()
+                    constraintSet.clone(constraintLayout)
+                    constraintSet.connect(
+                        binding.donneesComplementairesTitre.id,
+                        ConstraintSet.TOP,
+                        binding.specificEditTextStudentGraduationYear.id,
+                        ConstraintSet.BOTTOM,
+                        0
+                    )
+                    constraintSet.applyTo(constraintLayout)
                 }
                 R.id.base_radio_button_worker -> {
                     binding.specificStudentDataLayout.visibility = View.GONE
                     binding.specificWorkerDataLayout.visibility = View.VISIBLE
+
+                    val constraintLayout = (binding.root).getChildAt(0) as ConstraintLayout
+                    val constraintSet = ConstraintSet()
+                    constraintSet.clone(constraintLayout)
+
+                    constraintSet.connect(
+                        binding.donneesComplementairesTitre.id,
+                        ConstraintSet.TOP,
+                        binding.specificEditTextWorkerExperience.id,
+                        ConstraintSet.BOTTOM,
+                        0
+                    )
+                    constraintSet.applyTo(constraintLayout)
                 }
             }
-        }
-
-        binding.deleteButton.setOnClickListener {
-            cancelFormData()
-        }
-        binding.okButton.setOnClickListener {
-            submitFormData()
         }
     }
 
