@@ -41,6 +41,24 @@ Lorsqu'on appuie sur le bouton `Annuler`, tous les champs du formulaire sont res
 > soit correct ? Nous pensons notamment à la possibilité de faire des retours à la ligne, d’activer
 > le correcteur orthographique et de permettre au champ de prendre la taille nécessaire.
 
+Pour pouvoir faire des retours à la ligne, il faut ajouter la valeur `textMultiline` à l'attribut `inputType` de l'`EditText` pour le commentaire.
+
+Pour activer le correcteur orthographique, on peut ajouter la valeur `textAutoCorrect` à l'attribut `inputType` de 
+l'`EditText` pour le commentaire. 
+
+Pour gérer le nombre de lignes visibles dans le champ, on peut utiliser l'attribut `android::maxLines`, dont la
+valeur définit le nombre de lignes écrites visibles. On peut activer le défilement vertical en ajoutant 
+l'attribut ``android:scrollbars="vertical"`` à l'`EditText`, dans le cas où le texte dépasse le nombre limite de lignes. Cela permet à l'utilisateur de voir le texte complet en faisant défiler.
+
+Voici un extrait du code de l'`EditText` pour le commentaire, qui contient la configuration pour que son
+comportement soir correct.
+
+```kotlin
+android:inputType="textMultiLine|textAutoCorrect"
+android:maxLines="5"
+android:scrollbars="vertical"
+```
+
 > __4.2__ Pour afficher la date sélectionnée via le DatePicker nous pouvons utiliser un DateFormat
 > permettant par exemple d’afficher 12 juin 1996 à partir d’une instance de Date. Le formatage
 > des dates peut être relativement différent en fonction des langues, la traduction des mois par
