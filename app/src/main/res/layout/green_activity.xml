@@ -286,7 +286,7 @@
 
         <!-- Student Specific Data Group -->
         <androidx.constraintlayout.widget.Group
-            android:id="@+id/group_student"
+            android:id="@+id/specific_student_data_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:constraint_referenced_ids="specific_text_view_student_data,specific_text_view_student_school,specific_edit_text_student_school,specific_text_view_student_graduation_year,specific_edit_text_student_graduation_year"
@@ -294,7 +294,7 @@
 
         <!-- Worker Specific Data Group -->
         <androidx.constraintlayout.widget.Group
-            android:id="@+id/group_worker"
+            android:id="@+id/specific_worker_data_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:constraint_referenced_ids="specific_text_view_worker_data,specific_text_view_worker_company,specific_edit_text_worker_company,specific_text_view_worker_sector,specific_spinner_worker_sector,specific_text_view_worker_experience,specific_edit_text_worker_experience"
