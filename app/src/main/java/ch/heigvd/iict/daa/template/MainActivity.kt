@@ -10,6 +10,7 @@ import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import ch.heigvd.iict.daa.labo3.Student
 import ch.heigvd.iict.daa.labo3.Worker
+import ch.heigvd.iict.daa.template.databinding.ActivityMainBinding
 import ch.heigvd.iict.daa.template.databinding.GreenActivityBinding
 import ch.heigvd.iict.daa.template.databinding.RedLayoutBinding
 
@@ -17,17 +18,17 @@ import ch.heigvd.iict.daa.template.databinding.RedLayoutBinding
 class MainActivity : AppCompatActivity() {
 
     // create a binding object for the layout, used to access its views
-    private lateinit var binding: RedLayoutBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = RedLayoutBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         // set the content view to the root view of the binding, instead of the layout
         setContentView(binding.root)
 
         initializeListeners()
-        /*
-        val studentLayout = findViewById<LinearLayout>(R.id.specific_student_data_layout)
+
+        /*val studentLayout = findViewById<LinearLayout>(R.id.specific_student_data_layout)
         val workerLayout = findViewById<LinearLayout>(R.id.specific_worker_data_layout)
         val radioGroup = findViewById<RadioGroup>(R.id.base_radio_group_occupation)
 
@@ -71,11 +72,11 @@ class MainActivity : AppCompatActivity() {
      * Create a Student or a Worker object from the data entered in the form
      */
     private fun submitFormData() {
-        /*if (binding.baseRadioGroupOccupation.checkedRadioButtonId == R.id.base_radio_button_student) {
+        if (binding.baseRadioGroupOccupation.checkedRadioButtonId == R.id.base_radio_button_student) {
             createStudent()
         } else {
             createWorker()
-        }*/
+        }
     }
 
     /**
