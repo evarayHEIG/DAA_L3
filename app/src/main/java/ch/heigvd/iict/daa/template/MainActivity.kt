@@ -25,31 +25,26 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         // set the content view to the root view of the binding, instead of the layout
         setContentView(binding.root)
-
         initializeListeners()
-
-        /*val studentLayout = findViewById<LinearLayout>(R.id.specific_student_data_layout)
-        val workerLayout = findViewById<LinearLayout>(R.id.specific_worker_data_layout)
-        val radioGroup = findViewById<RadioGroup>(R.id.base_radio_group_occupation)
-
-        radioGroup.setOnCheckedChangeListener { _, checkedId ->
-            when (checkedId) {
-                R.id.base_radio_button_student -> {
-                    studentLayout.visibility = View.VISIBLE
-                    workerLayout.visibility = View.GONE
-                }
-                R.id.base_radio_button_worker -> {
-                    studentLayout.visibility = View.GONE
-                    workerLayout.visibility = View.VISIBLE
-                }
-            }
-        }*/
     }
 
     /**
      * Initialize the listeners for the buttons
      */
     private fun initializeListeners() {
+
+        binding.baseRadioGroupOccupation.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.base_radio_button_student -> {
+                    binding.specificStudentDataLayout.visibility = View.VISIBLE
+                    binding.specificWorkerDataLayout.visibility = View.GONE
+                }
+                R.id.base_radio_button_worker -> {
+                    binding.specificStudentDataLayout.visibility = View.GONE
+                    binding.specificWorkerDataLayout.visibility = View.VISIBLE
+                }
+            }
+        }
 
         binding.deleteButton.setOnClickListener {
             cancelFormData()
