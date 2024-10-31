@@ -103,7 +103,7 @@
         <!-- Nationality Field -->
         <TextView
             android:id="@+id/base_text_view_nationality"
-            android:layout_width="80dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/main_base_nationality_title"
             android:layout_marginEnd="30dp"
@@ -324,11 +324,12 @@
             android:layout_centerInParent="true"
             android:text="@string/additional_email_title"
             android:layout_height="wrap_content"
-            android:layout_width="0dp"
+            android:layout_width="150dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/donnees_complementaires_titre"
             app:layout_constraintBottom_toBottomOf="@id/donnees_complementaires_email_champ"
-            android:layout_marginEnd="20dp"/>
+            android:layout_marginEnd="30dp"
+            app:layout_constraintBaseline_toBaselineOf="@id/donnees_complementaires_email_champ"/>
 
         <EditText
             android:id = "@+id/donnees_complementaires_email_champ"
@@ -339,7 +340,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/donnees_complementaires_email_titre"
             app:layout_constraintTop_toBottomOf="@id/donnees_complementaires_titre"
-            android:layout_marginStart="40dp"/>
+            android:layout_marginStart="30dp" />
 
         <!-- Comment Field -->
         <TextView
