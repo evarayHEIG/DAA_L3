@@ -5,6 +5,35 @@
 
 ## Choix d'implémentation
 
+### View Binding
+Nous avons décidé d'utiliser le `ViewBinding` pour faciliter l'écriture du code qui interagit avec les vues. 
+Pour cela, nous avons simplement ajouté le code ci-dessous dans le fichier `gradle.build`
+
+```json
+android {
+    ...
+    buildFeatures {
+        viewBinding = true
+    }
+}
+```
+
+Cela permet d'activer la liaison de vue. Une classe de liaison est alors générée pour chaque Fichier de mise en page XML que contient le module. Nous passons donc par notre binding `ActivityMainBinding`  pour interagir avec nos vues.
+
+### Validation des données
+Nous avons décidé d'ajouter un petit mécanisme de validation des données du formulaire. Nous obligeons tout simplement
+tous les champs à être remplis lors de la validation du formulaire, donc au moment de l'appui sur le bouton `Ok`. Si tel n'est pas le cas, un message `Toast` contenant le texte "Tous les champs sont obligatoires" apparait.
+
+### Bouton Ok
+Lorsqu'on appuie sur le bouton `Ok`, et qu'on a spécifié l'occupation, le listener du bouton va vérifier si 
+on a sélectionné `Employé` ou `Etudiant`. Si `Employé` est coché, on crée un objet `Worker`, si `Etudiant` est coché,
+on crée un objet `Student`. Dans les deux cas, l'objet créé est imprimé dans les logs, afin qu'on puisse vérifier
+que la création s'est bien passée. Une fois la validation faite, tous les champs du formulaire sont vidés.
+
+### Bouton Annuler
+Lorsqu'on appuie sur le bouton `Annuler`, tous les champs du formulaire sont reset, y compris les champs moins classiques, comme le calendrier, les boutons radio ou les spinners.
+
+
 ## Questions complémentaires
 
 > __4.1__ Pour le champ remark, destiné à accueillir un texte pouvant être plus long qu’une seule ligne,
