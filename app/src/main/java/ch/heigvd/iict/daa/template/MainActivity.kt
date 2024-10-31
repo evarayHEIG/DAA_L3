@@ -142,6 +142,39 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
+     * Check if all the fields in the form are filled
+     */
+    private fun isFormDataValid(): Boolean {
+        // Check if a radio button is selected
+        if (binding.baseRadioGroupOccupation.checkedRadioButtonId == -1) return false
+
+        // Validate common fields
+        if (binding.baseEditTextName.text.isEmpty() ||
+            binding.baseEditTextSurname.text.isEmpty() ||
+            binding.baseEditTextBirthdate.text.isEmpty() ||
+            binding.baseSpinnerNationality.selectedItemPosition == 0 ||
+            binding.donneesComplementairesEmailChamp.text.isEmpty() ||
+            binding.donneesComplementairesCommentaireChamp.text.isEmpty()) {
+            return false
+        }
+
+        // Validate fields based on the selected occupation
+        return when (binding.baseRadioGroupOccupation.checkedRadioButtonId) {
+            R.id.base_radio_button_student -> {
+                        binding.specificEditTextStudentSchool.text.isNotEmpty() &&
+                        binding.specificEditTextStudentGraduationYear.text.isNotEmpty()
+            }
+            R.id.base_radio_button_worker -> {
+                binding.specificEditTextWorkerCompany.text.isNotEmpty() &&
+                        binding.specificEditTextWorkerExperience.text.isNotEmpty() &&
+                        binding.specificSpinnerWorkerSector.selectedItemPosition != 0
+            }
+            else -> false
+        }
+    }
+
+
+    /**
      * Clear all the text fields present in the form
      */
     private fun resetFormData() {
@@ -173,10 +206,10 @@ class MainActivity : AppCompatActivity() {
      */
     private fun submitFormData() {
 
-        if (binding.baseRadioGroupOccupation.checkedRadioButtonId == -1) {
-            // Display an error message
+        // If one of the fields is empty, show a Toast message and return
+        if (!isFormDataValid()) {
             Toast.makeText(this, "Tous les champs sont obligatoires", Toast.LENGTH_SHORT).show()
-            return // Exit the function if no selection is made
+            return
         }
 
         if (binding.baseRadioGroupOccupation.checkedRadioButtonId == R.id.base_radio_button_student) {
