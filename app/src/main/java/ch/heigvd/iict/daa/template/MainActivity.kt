@@ -17,6 +17,9 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import java.util.Date
 
 /**
+ * This class is the main activity of the application.
+ * It displays the form and handles the data entered by the user.
+ *
  * @author Rachel Tranchida
  * @author Massimo Stefani
  * @author Eva Ray
@@ -25,13 +28,18 @@ class MainActivity : AppCompatActivity() {
 
     // create a binding object for the layout, used to access its views
     private lateinit var binding: ActivityMainBinding
+    // create a date picker object, used to select a date
     private lateinit var datePicker: MaterialDatePicker<Long>
 
+    /**
+     * Called when the activity is first created.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         // set the content view to the root view of the binding, instead of the layout
         setContentView(binding.root)
+
         initDatePicker()
         initializeListeners()
         initSpinners()
