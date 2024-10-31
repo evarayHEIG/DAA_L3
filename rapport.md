@@ -53,7 +53,7 @@ l'attribut ``android:scrollbars="vertical"`` à l'`EditText`, dans le cas où le
 Voici un extrait du code de l'`EditText` pour le commentaire, qui contient la configuration pour que son
 comportement soir correct.
 
-```kotlin
+```xml
 android:inputType="textMultiLine|textAutoCorrect"
 android:maxLines="5"
 android:scrollbars="vertical"
@@ -80,6 +80,28 @@ android:scrollbars="vertical"
 > Est-ce possible de spécifier son propre ordre de remplissage du questionnaire ?
 > Arrivé sur le dernier champ, est-il possible de faire en sorte que ce bouton soit lié au bouton
 > de validation du questionnaire ?
+
+Oui, il est possible de spécifier son propre ordre de remplissage de questionnaire. Pour cela, on peut
+utiliser l'attribut' `android:nextFocusDown`.
+Chaque champ peut être configuré pour spécifier quel champ doit être le suivant lors de l'appui sur le bouton "Suivant" du clavier. Cela se fait avec `android:nextFocusDown="<id prochain champ>"`. En configurant les bons `nextFocusDown` dans tous les ``EditText``, on peut garantir le bon enchaînement des champs du formulaire.
+
+Oui, il est aussi possible de faire en sorte que ce bouton soit lié au bouton de validation du questionnaire. Cela se fait
+à nouveau avec le paramètre `imeOptions`. En utilisant `android:imeOptions="actionDone"` sur le dernier champ du
+formulaire,  Cela change l’apparence du bouton "Suivant" pour qu'il affiche "Valider" ou "Terminé". Ensuite, on peut gérer l'action de validation dans le code pour déclencher le traitement du formulaire. Dans le code Kotlin, on 
+peut par exemple écouter l'action "Done" sur le dernier ``EditText`` avec un `setOnEditorActionListener`met déclencher la validation du formulaire. Voici un code
+d'exemple.
+
+```java
+binding.editTextRemark.setOnEditorActionListener { _, actionId, _ ->
+    if (actionId == EditorInfo.IME_ACTION_DONE) {
+        submitFormData()
+        true
+    } else {
+        false
+    }
+}
+```
+
 
 > __4.5__ Pour les deux Spinners (nationalité et secteur d’activité), comment peut-on faire en sorte que
 > le premier choix corresponde au choix null, affichant par exemple le label « Sélectionner » ?
