@@ -107,3 +107,5 @@ binding.editTextRemark.setOnEditorActionListener { _, actionId, _ ->
 > le premier choix corresponde au choix null, affichant par exemple le label « Sélectionner » ?
 > Comment peut-on gérer cette valeur pour ne pas qu’elle soit confondue avec une réponse ?
 
+On peut créer un spinner adapter custom. Ici, on l'appelle `PlaceholderSpinnerAdapter` qui attend une liste dont le premier élément sera considéré comme un placeholder. On chosisit de le cacher dans la dropdown lorsque l'on clique dessus avec la fonction `getDropDownView`. De plus, lorsque la position 0 est sélectionnée (celle du placeholder), `isEnabled` retourne `false`.
+Pour donner les éléments à notre nouveau dropdown, on donne une liste qui est la concaténation du placeholder "Séléectionner" et de la liste de string représentants les choix du DropDown.
