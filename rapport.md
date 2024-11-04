@@ -33,7 +33,7 @@ que la création s'est bien passée. Une fois la validation faite, tous les cham
 ### Bouton Annuler
 Lorsqu'on appuie sur le bouton `Annuler`, tous les champs du formulaire sont reset, y compris les champs moins classiques, comme le calendrier, les boutons radio ou les spinners.
 
-
+<div style="page-break-after: always;"></div>
 ## Questions complémentaires
 
 > __4.1__ Pour le champ remark, destiné à accueillir un texte pouvant être plus long qu’une seule ligne,
