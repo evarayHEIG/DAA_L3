@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="form_title_text_size">18sp</dimen>
+    <dimen name="form_std_width">150dp</dimen>
+    <dimen name="form_std_start_end_margin">30dp</dimen>
+</resources>

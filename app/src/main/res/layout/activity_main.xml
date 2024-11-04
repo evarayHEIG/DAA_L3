@@ -18,17 +18,17 @@
             android:layout_height="wrap_content"
             android:text="@string/main_base_title"
             android:textAllCaps="true"
-            android:textSize="18sp"
+            android:textSize="@dimen/form_title_text_size"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <!-- Name Field -->
         <TextView
             android:id="@+id/base_text_view_name"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/form_std_width"
             android:layout_height="wrap_content"
             android:text="@string/main_base_name_title"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/base_text_view_base_data"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBaseline_toBaselineOf="@id/base_edit_text_name" />
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/main_base_name_title"
             android:inputType="textPersonName"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/base_text_view_base_data"
             app:layout_constraintStart_toEndOf="@id/base_text_view_name"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -47,10 +47,10 @@
         <!-- Surname Field -->
         <TextView
             android:id="@+id/base_text_view_surname"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/form_std_width"
             android:layout_height="wrap_content"
             android:text="@string/main_base_firstname_title"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/base_text_view_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBaseline_toBaselineOf="@id/base_edit_text_surname" />
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/main_base_firstname_title"
             android:inputType="textPersonName"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/base_edit_text_name"
             app:layout_constraintStart_toEndOf="@id/base_text_view_surname"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -69,10 +69,10 @@
         <!-- Birthdate Field with Icon -->
         <TextView
             android:id="@+id/base_text_view_birthdate"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/form_std_width"
             android:layout_height="wrap_content"
             android:text="@string/main_base_birthdate_title"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/base_text_view_surname"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBaseline_toBaselineOf="@id/base_edit_text_birthdate" />
@@ -86,7 +86,7 @@
             android:clickable="false"
             android:cursorVisible="false"
             android:focusable="false"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/base_edit_text_surname"
             app:layout_constraintStart_toEndOf="@id/base_text_view_birthdate"
             app:layout_constraintEnd_toStartOf="@id/base_image_button_cake" />
@@ -103,10 +103,10 @@
         <!-- Nationality Field -->
         <TextView
             android:id="@+id/base_text_view_nationality"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/form_std_width"
             android:layout_height="wrap_content"
             android:text="@string/main_base_nationality_title"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/base_text_view_birthdate"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBaseline_toBaselineOf="@id/base_spinner_nationality"
@@ -116,7 +116,7 @@
             android:id="@+id/base_spinner_nationality"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/base_edit_text_birthdate"
             app:layout_constraintStart_toEndOf="@id/base_text_view_nationality"
             app:layout_constraintEnd_toEndOf="parent"
@@ -129,7 +129,7 @@
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="@string/main_base_occupation_title"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/base_text_view_nationality"
             app:layout_constraintStart_toStartOf="parent"
             />
@@ -139,7 +139,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/base_text_view_occupation"
             app:layout_constraintStart_toEndOf="@id/base_text_view_occupation"
             app:layout_constraintEnd_toEndOf="parent">
@@ -164,16 +164,16 @@
             android:layout_height="wrap_content"
             android:text="@string/main_specific_students_title"
             android:textAllCaps="true"
-            android:textSize="18sp"
+            android:textSize="@dimen/form_title_text_size"
             app:layout_constraintTop_toBottomOf="@id/base_radio_group_occupation"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/specific_text_view_student_school"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/form_std_width"
             android:layout_height="wrap_content"
             android:text="@string/main_specific_school_title"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/specific_text_view_student_data"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBaseline_toBaselineOf="@id/specific_edit_text_student_school" />
@@ -184,17 +184,17 @@
             android:layout_height="wrap_content"
             android:hint="@string/main_specific_school_title"
             android:inputType="text"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/specific_text_view_student_data"
             app:layout_constraintStart_toEndOf="@id/specific_text_view_student_school"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/specific_text_view_student_graduation_year"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/form_std_width"
             android:layout_height="wrap_content"
             android:text="@string/main_specific_graduationyear_title"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/specific_edit_text_student_school"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBaseline_toBaselineOf="@id/specific_edit_text_student_graduation_year" />
@@ -205,7 +205,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/main_specific_graduationyear_title"
             android:inputType="number"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/specific_edit_text_student_school"
             app:layout_constraintStart_toEndOf="@id/specific_text_view_student_graduation_year"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -217,16 +217,16 @@
             android:layout_height="wrap_content"
             android:text="@string/main_specific_workers_title"
             android:textAllCaps="true"
-            android:textSize="18sp"
+            android:textSize="@dimen/form_title_text_size"
             app:layout_constraintTop_toBottomOf="@id/base_radio_group_occupation"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/specific_text_view_worker_company"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/form_std_width"
             android:layout_height="wrap_content"
             android:text="@string/main_specific_compagny_title"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/specific_text_view_worker_data"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBaseline_toBaselineOf="@id/specific_edit_text_worker_company" />
@@ -237,17 +237,17 @@
             android:layout_height="wrap_content"
             android:hint="@string/main_specific_compagny_title"
             android:inputType="text"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/specific_text_view_worker_data"
             app:layout_constraintStart_toEndOf="@id/specific_text_view_worker_company"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/specific_text_view_worker_sector"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/form_std_width"
             android:layout_height="wrap_content"
             android:text="@string/main_specific_sector_title"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/specific_text_view_worker_company"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBaseline_toBaselineOf="@id/specific_spinner_worker_sector"
@@ -257,7 +257,7 @@
             android:id="@+id/specific_spinner_worker_sector"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/specific_edit_text_worker_company"
             app:layout_constraintStart_toEndOf="@id/specific_text_view_worker_sector"
             app:layout_constraintEnd_toEndOf="parent"
@@ -266,10 +266,10 @@
 
         <TextView
             android:id="@+id/specific_text_view_worker_experience"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/form_std_width"
             android:layout_height="wrap_content"
             android:text="@string/main_specific_experience_title"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/specific_text_view_worker_sector"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBaseline_toBaselineOf="@id/specific_edit_text_worker_experience" />
@@ -280,7 +280,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/main_specific_experience_title"
             android:inputType="numberDecimal"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="@dimen/form_std_start_end_margin"
             app:layout_constraintTop_toBottomOf="@id/specific_spinner_worker_sector"
             app:layout_constraintStart_toEndOf="@id/specific_text_view_worker_experience"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -306,7 +306,7 @@
 
         <TextView
             android:id="@+id/donnees_complementaires_titre"
-            android:textSize="18sp"
+            android:textSize="@dimen/form_title_text_size"
             android:textAllCaps="true"
             android:layout_centerInParent="true"
             android:text="@string/additional_title"
@@ -324,11 +324,11 @@
             android:layout_centerInParent="true"
             android:text="@string/additional_email_title"
             android:layout_height="wrap_content"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/form_std_width"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/donnees_complementaires_titre"
             app:layout_constraintBottom_toBottomOf="@id/donnees_complementaires_email_champ"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="@dimen/form_std_start_end_margin"
             app:layout_constraintBaseline_toBaselineOf="@id/donnees_complementaires_email_champ"/>
 
         <EditText
@@ -340,7 +340,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/donnees_complementaires_email_titre"
             app:layout_constraintTop_toBottomOf="@id/donnees_complementaires_titre"
-            android:layout_marginStart="30dp" />
+            android:layout_marginStart="@dimen/form_std_start_end_margin" />
 
         <!-- Comment Field -->
         <TextView
@@ -373,7 +373,7 @@
             android:text="@string/btn_cancel"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/donnees_complementaires_commentaire_champ"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="@dimen/form_std_start_end_margin"
             />
 
         <!-- OK button -->
@@ -384,7 +384,7 @@
             android:text="@string/btn_ok"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/donnees_complementaires_commentaire_champ"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="@dimen/form_std_start_end_margin"
             />
 
         <!-- Données complémentaires -->
