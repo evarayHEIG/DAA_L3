@@ -66,6 +66,17 @@ android:scrollbars="vertical"
 > britannique serait 12th June 1996 et en anglais américain June 12, 1996. Comment peut-on
 > gérer cela au mieux ?
 
+En inspectant certains fichiers fournis. Nous avons constaté que dans le classe `Person`,
+un attribut `dateFormatter` de type `DateFormat` est déclaré. Cela permet de formater la date de naissance
+d'une personne en une chaîne de caractères. 
+Pourquoi cela marche? `DateFormat` est une classe abstraite qui permet de formater et 
+de parser des dates en fonction de la locale de l'utilisateur. 
+En utilisant `DateFormat.getDateInstance()`, on obtient une instance de `DateFormat` qui formate les dates en fonction de la locale de l'utilisateur. 
+Cela permet de gérer automatiquement les différences de format de date en fonction de la langue et des habitudes régionales.
+
+ref: [DateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DateFormat.html)
+
+
 > __4.3__ Veuillez choisir une question en fonction de votre choix d’implémentation :
 > a. Si vous avez utilisé le DatePickerDialog1 du SDK. En cas de rotation de l’écran du
 > smartphone lorsque le dialogue est ouvert, une exception android.view.WindowLeaked
@@ -74,6 +85,50 @@ android:scrollbars="vertical"
 > les dates sélectionnables dans le dialogue, en particulier pour une date de naissance il est
 > peu probable d’avoir une personne née il y a plus de 110 ans ou à une date dans le futur.
 > Comment pouvons-nous mettre cela en place ?
+
+Nous avons utilisé `MaterialDatePicker` de la librairie Material pour afficher un calendrier de sélection de date. Grâce au `MaterialDatePicker.Builder`, il est possible de configurer diverses options pour le dialogue de sélection de date, y compris les contraintes de calendrier. L'objet `CalendarConstraints` permet de limiter les dates sélectionnables et utilise le pattern Builder, ce qui facilite la création de contraintes spécifiques pour notre cas d'utilisation.
+
+### Contraintes de date
+Dans notre exemple, pour restreindre la sélection de dates à une plage plausible pour une date de naissance, nous allons définir deux contraintes :
+
+1. **Empêcher la sélection de dates futures**
+    - Cela assure que l'utilisateur ne puisse pas choisir une date au-delà de la date actuelle.
+
+2. **Limiter l'âge maximum**
+    - En fixant une limite de 110 ans en arrière, nous restreignons la sélection à une période de temps raisonnable pour une date de naissance.
+
+### Implémentation
+
+Voici le code correspondant pour initialiser un `MaterialDatePicker` avec ces contraintes :
+
+```kotlin
+private fun initDatePicker() {
+    // Création d'un MaterialDatePicker pour la sélection de date de naissance
+    val datePicker = MaterialDatePicker.Builder.datePicker()
+        .setTitleText(resources.getString(R.string.main_base_birthdate_dialog_title)) // Titre du dialogue
+        .setSelection(MaterialDatePicker.todayInUtcMilliseconds()) // Sélectionne la date actuelle par défaut
+        .setCalendarConstraints(
+            CalendarConstraints.Builder()
+                .setValidator(DateValidatorPointBackward.now()) // Limite à aujourd'hui (pas de date future)
+                .setStart(Calendar.getInstance().apply { 
+                    add(Calendar.YEAR, -110) 
+                }.timeInMillis) // Limite l'âge max à 110 ans
+                .build()
+        )
+        .build()
+}
+```
+
+ref: [MaterialDatePicker](https://m2.material.io/components/date-pickers/android#using-date-pickers)
+
+### Explications des éléments clés
+
+* `setTitleText` : Définit le titre du dialogue, par exemple "Sélectionner la date de naissance".
+* `setSelection` : Par défaut, la sélection est positionnée sur la date actuelle.
+* `setCalendarConstraints` : Permet de définir des contraintes pour la sélection de dates.
+    * `DateValidatorPointBackward.now()` : Limite la sélection aux dates antérieures ou égales à aujourd'hui.
+    * `setStart` : Spécifie la date minimale sélectionnable en soustrayant 110 ans à la date actuelle pour éviter des dates de naissance improbables.
+
 
 > __4.4__ Lors du remplissage des champs textuels, vous pouvez constater que le bouton « suivant »
 > présent sur le clavier virtuel permet de sauter automatiquement au prochain champ à saisir. 
